@@ -6,8 +6,8 @@
 # ```
 class GitFriendly < Formula
   desc "Streamline your git workflow: `pull`, `branch`, `merge`, `push`"
-  homepage "https://github.com/jamiew/git-friendly"
-  url "https://github.com/jamiew/git-friendly/archive/1.0.tar.gz"
+  homepage "https://github.com/git-friendly/git-friendly"
+  url "https://github.com/git-friendly/git-friendly/archive/1.0.tar.gz"
   sha256 "8a010c7c7cfb5c76f6e89e88ca7d7003e8fadd56938e2b4d0ebaac9785a0f6c9"
 
   def install
