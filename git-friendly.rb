@@ -7,9 +7,9 @@
 class GitFriendly < Formula
   desc "Streamline your git workflow: `pull`, `branch`, `merge`, `push`"
   homepage "https://github.com/git-friendly/git-friendly"
-  version "1.0.2"
-  url "https://github.com/git-friendly/git-friendly/archive/1.0.2.tar.gz"
-  sha256 "eda37ce98ed81f14b0e500d5e7e132f04d93815ba90d63e856f464165bd60f1e"
+  version "1.0.4"
+  url "https://github.com/git-friendly/git-friendly/archive/1.0.4.tar.gz"
+  sha256 "753173b5a062fb414b73e8853a36e831d7408294932bd4d7d0b32f300764dd01"
 
   def install
     %w[push pull branch merge stash].each do |file|
