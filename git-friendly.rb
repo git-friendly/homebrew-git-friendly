@@ -7,7 +7,7 @@
 class GitFriendly < Formula
   desc "Streamline your git workflow: `pull`, `branch`, `merge`, `push`"
   homepage "https://github.com/git-friendly/git-friendly"
-  url "https://github.com/git-friendly/git-friendly/archive/1.0.5.tar.gz"
+  url "https://github.com/git-friendly/git-friendly/archive/1.0.6.tar.gz"
   version "1.0.6"
   sha256 "066054f74fcf01bf6968e50914b263ea8640bcd6af76179dac1e1e421afe3206"
 
