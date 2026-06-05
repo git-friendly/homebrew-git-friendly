@@ -15,3 +15,4 @@ Please send patches!
 3. Run `shasum -a 256 1.0.6.tar.gz` (with the new version).
 4. Copy the checksum to the `git-friendly.rb`.
 5. If any commands have been added or removed, be sure to update the `install` function
+6. Commit changes and `push`
