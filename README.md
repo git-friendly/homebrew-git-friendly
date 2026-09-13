@@ -1,18 +1,41 @@
 # homebrew-git-friendly
 
-This is the [homebrew](https://brew.sh) tap for [git-friendly](https://github.com/jamiew/git-friendly)
+The [Homebrew](https://brew.sh) formula for [git-friendly](https://github.com/git-friendly/git-friendly).
+Installs `branch`, `merge`, `pull`, `push`, and `stash`.
 
-Does this even need a license
+## Install
 
-It's free
+```sh
+brew install git-friendly/git-friendly/git-friendly
+```
+
+## Development
+
+Edit `Formula/git-friendly.rb` in your local tap:
+
+```sh
+brew tap git-friendly/git-friendly
+brew trust --formula git-friendly/git-friendly/git-friendly
+cd "$(brew --repository git-friendly/git-friendly)"
+```
+
+Check changes before submitting:
+
+```sh
+brew style git-friendly/git-friendly
+brew reinstall --build-from-source git-friendly/git-friendly/git-friendly
+brew audit --strict --online git-friendly/git-friendly/git-friendly
+brew test --verbose git-friendly/git-friendly/git-friendly
+brew livecheck git-friendly/git-friendly/git-friendly
+```
+
+Tests use temporary repositories and a local remote. CI checks macOS and Linux.
+
+## Updating
+
+1. Update the release URL and SHA-256 in `Formula/git-friendly.rb`; Homebrew infers the version.
+2. Calculate the checksum with `curl --fail --location RELEASE_URL | shasum -a 256`.
+3. Update `bin.install` if upstream commands change.
+4. Run the checks above.
 
 Please send patches!
-
-## How to update
-
-1. Update version number and tarball URL in the `git-friendly.rb`.
-2. Run `wget https://github.com/git-friendly/git-friendly/archive/1.0.6.tar.gz` (with the new version).
-3. Run `shasum -a 256 1.0.6.tar.gz` (with the new version).
-4. Copy the checksum to the `git-friendly.rb`.
-5. If any commands have been added or removed, be sure to update the `install` function
-6. Commit changes and `push`

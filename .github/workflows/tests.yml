@@ -1,0 +1,46 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-26, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash -euo pipefail {0}
+    env:
+      HOMEBREW_NO_AUTO_UPDATE: 1
+      HOMEBREW_NO_INSTALL_CLEANUP: 1
+      HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK: 1
+    steps:
+      - name: Set up Homebrew and check out the tap
+        uses: Homebrew/actions/setup-homebrew@f8d4222eb633e65c2a0157383cf80861fc7fae7f # 2026.09.07.1
+        with:
+          stable: true
+
+      - name: Check formula style
+        run: brew style git-friendly/git-friendly
+
+      - name: Install from source
+        run: brew install --build-from-source --yes git-friendly/git-friendly/git-friendly
+
+      - name: Audit formula
+        run: brew audit --strict --online git-friendly/git-friendly/git-friendly
+
+      - name: Test installed commands
+        run: brew test --verbose git-friendly/git-friendly/git-friendly
