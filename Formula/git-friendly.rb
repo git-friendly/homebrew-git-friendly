@@ -17,7 +17,7 @@ class GitFriendly < Formula
     ENV["TERM"] = "xterm"
     ENV["GIT_CONFIG_NOSYSTEM"] = "1"
     ENV["GIT_CONFIG_GLOBAL"] = (testpath/".gitconfig").to_s
-    (testpath/".gitconfig").write <<~EOS
+    (testpath/".gitconfig").write <<~EOS, mode: "a"
       [user]
         name = Homebrew Test
         email = test@example.com
